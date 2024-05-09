@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class stack {
+            constructor(a, b) {
+                this.a = [];
+                this.b = [];
+                this.size = 5
+            }
+            pushElement(element) {
+                if (this.a.length > this.size) {
+                    console.log("stack overflow");
+                } else {
+                    this.a.push(element)
+                    console.log(this.a);
+                }
+            }
+            printElement() {
+                if(this.a.length == 0){
+                    console.log("stack underflow");
+                }else{
+
+                    this.a.map((val) => {
+                        console.log(val);
+                    })
+                }
+            }
+            stackReverse() {
+                for (let i = 0; i < this.a.length; i++) {
+                    this.b[i] = this.a[this.a.length - 1 - i]
+                }
+                console.log("reverse array =",this.b);
+            }
+            secondLast(){
+                console.log("second last element of stack",this.a[1]);
+            }
+            first(){
+                console.log("first element of stack",this.a[this.a.length -1]);
+            }
+        }
+        let s1 = new stack
+        s1.pushElement(10)
+        s1.pushElement(11)
+        s1.pushElement(12)
+        s1.pushElement(13)
+        s1.printElement()
+        s1.stackReverse()
+        s1.secondLast()
+        s1.first()
+    </script>
+</body>
+
+</html>

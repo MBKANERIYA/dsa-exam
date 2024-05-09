@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class stack {
+            constructor(a, b) {
+                this.a = [];
+                this.b = [];
+                this.c = [];
+                this.d = [];
+                this.size = 5
+            }
+            pushElement(element) {
+                if (this.a.length > this.size) {
+                    console.log("stack overflow");
+                } else {
+                    this.a.push(element)
+                    console.log(this.a);
+                }
+            }
+            push2ndElement(element) {
+                if (this.b.length > this.size) {
+                    console.log("stbck overflow");
+                } else {
+                    this.b.push(element)
+                    console.log(this.b);
+                }
+            }
+            printElement() {
+                this.a.map((val) => {
+                    console.log(val);
+                })
+            }
+            merge() {
+                for (let i = 0; i < this.a.length; i++) {
+                    this.c[i] = this.a[i]
+                    this.c[i + this.a.length] = this.b[i]
+                }
+                console.log(this.c);
+            }
+            stackReverse() {
+                for (let i = 0; i < this.c.length; i++) {
+                    this.d[i] = this.c[this.c.length - 1 - i]
+                }
+                console.log("reverse array =", this.d);
+            }
+            add() {
+                let index = 0
+                let val = 9;
+
+                for (let i = this.c.length - 1; i >= index; i--) {
+                    this.c[i + 1] = this.c[i]
+
+                    if (i == index) {
+                        this.c[index] = val;
+                    }
+                }
+                console.log("first in",this.c);
+            }
+            remove() {
+                let index = 0
+                let val = 9;
+
+                for (let i = 0; i < this.a.length; i++) {
+                    this.c[i] = this.c[i+1]
+                }
+                this.c.length = this.c.length-1
+                console.log("first out",this.c);
+            }
+        }
+        let s1 = new stack
+        s1.pushElement(10)
+        s1.pushElement(11)
+        s1.pushElement(12)
+        s1.pushElement(13)
+        s1.push2ndElement(14)
+        s1.push2ndElement(15)
+        s1.push2ndElement(16)
+        s1.push2ndElement(17)
+        s1.printElement()
+        s1.merge()
+        s1.stackReverse()
+        s1.add()
+        s1.remove()
+    </script>
+</body>
+
+</html>
